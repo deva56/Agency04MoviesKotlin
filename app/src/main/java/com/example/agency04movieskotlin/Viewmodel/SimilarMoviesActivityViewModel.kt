@@ -27,7 +27,7 @@ class SimilarMoviesActivityViewModel @Inject constructor(
     fun getSimilarMovies(movieID: String, api_key: String) {
         viewModelScope.launch {
             try {
-                val result = networkCallsRepository.getTopRatedMovies(api_key)
+                val result = networkCallsRepository.getSimilarMovies(movieID, api_key)
                 if (result.isSuccessful) {
                     moviesListItemLiveData.postValue(result.body())
                 } else {
